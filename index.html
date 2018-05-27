@@ -1,34 +1,54 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Hangulize 2 JavaScript Demo</title>
-    <script src="hangulize.js"></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-      crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <select name="lang"></select>
-    <input name="word" />
-    <p></p>
-    <script>
-      var $lang = $('[name=lang]');
-      var $word = $('[name=word]');
-      var $p = $('p');
+<head>
+<!----------------------------------------------------------------------------->
 
-      $(__hangulize__.ListLangs()).each(function(i, lang) {
-        var $opt = $('<option>').val(lang).text(lang);
-        $lang.append($opt)
-      });
+<title>Hangulize 2 JavaScript Demo</title>
+<script src="hangulize.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
 
-      function callHangulize() {
-        var word = hangulize($lang.val(), $word.val());
-        $p.text(word)
-      }
+<!----------------------------------------------------------------------------->
+</head>
+<body>
+<!----------------------------------------------------------------------------->
 
-      $lang.on('change', callHangulize);
-      $word.on('keyup', callHangulize);
-    </script>
-  </body>
+<select name="lang"></select>
+<input name="word" />
+<p></p>
+<script>
+  var $lang = $('[name=lang]');
+  var $word = $('[name=word]');
+  var $p = $('p');
+
+  $(__hangulize__.ListLangs()).each(function(i, lang) {
+    var $opt = $('<option>').val(lang).text(lang);
+    $lang.append($opt)
+  });
+
+  function callHangulize() {
+    var word = hangulize($lang.val(), $word.val());
+    $p.text(word)
+  }
+
+  $lang.on('change', callHangulize);
+  $word.on('keyup', callHangulize);
+</script>
+
+<!----------------------------------------------------------------------------->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-1078484-9"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-1078484-9');
+</script>
+
+<!----------------------------------------------------------------------------->
+</body>
 </html>
